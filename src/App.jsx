@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './componentes/header/Header';
+import Header from './componentes/Header/Header';
 import Productos from './componentes/productos/Productos';
 import Inicio from "./componentes/Inicio/Inicio"
 import { Routes, Route } from "react-router-dom";
@@ -19,22 +19,23 @@ function App() {
   return (
     <DataProvider>
       <div className='App'>
-        <Header/>
+      <Header/>
         <Carrito/>
         <Routes>
+        
           <Route />
           <Route path="/" element={<Inicio />} />
           <Route path="/productos" element={<Productos/>} />
           <Route path="/producto/:id" element={<ProductoDetalle/>} />
-       
+
        {/* <Productos/>
        <Paginas/> */}
        </Routes>
       </div>
       </DataProvider>
-      
-      
-    
+
+
+
   )
 }
 

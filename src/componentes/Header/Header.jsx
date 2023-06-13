@@ -16,38 +16,26 @@ const Header = () => {
   }
   return (
     <header>
-        {/* <div className='menu'>
-          <box-icon name="menu"></box-icon>
-        </div> */}
-        <a href='#'>
-            <div className='logo'>
-            <img src={Logo} alt="logo" width="150" />
-            </div>
-        </a>
-        <ul>
-            
-            <li>
-                <Link to='/'>INICIO
-                {/* <a href='#'>INICIO</a> */}
-                </Link>   
-
-            </li>
-            
-            
-            <li>
-                <Link to='/productos'>PRODUCTOS
-                
-                </Link> 
-                
-            </li>  
-             
-        </ul>
-        <div className='cart' onClick={toogleMenu} >
-            <box-icon name="cart"></box-icon>
-            
-            <span className='item__total'>{carrito.length}</span>
-        </div>
-
+      
+      <Link to="/">
+      <div className="logo">
+        <img src={Logo} alt="Logo" width="150" />
+      </div>
+      </Link>
+      <ul>
+        <li>
+          
+          <Link to="/"><h3>inicio</h3></Link>
+        </li>
+        <li>
+          
+          <Link to="/productos"><h3>productos</h3></Link>
+        </li>
+      </ul>
+      <div className="cart" onClick={toogleMenu}>
+        <box-icon name="cart"></box-icon>
+        <span className="item__total"> {carrito.length} </span>
+      </div>
     </header>
   )
 }

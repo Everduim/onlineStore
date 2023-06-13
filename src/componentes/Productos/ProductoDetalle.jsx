@@ -19,7 +19,7 @@ const ProductoDetalle = () => {
             //console.log(producto.id, parseInt(params.id))
             if(producto.id === parseInt(params.id)){
                 setDetalle(producto)
-                setUrl(0)
+                setUrl([0])
 
             }
         })
@@ -42,10 +42,15 @@ const ProductoDetalle = () => {
     <>
     {
         <div className="detalles">
+            
             <h2>{detalle.title}</h2>
             <p className='price'>${detalle.price}</p>
+            
             <div className="grid">
+                
+                
                 <p className='nuevo'>Nuevo</p>
+                
                 <div className="size">
                     <select placeholder='Tamaño'>
                         <option value="1">1</option>
@@ -62,7 +67,7 @@ const ProductoDetalle = () => {
                 </div>
             </div>
             <button>Añadir al carrito</button>
-            <img src={detalle.image} alt={detalle.title} />
+            <img src={images} alt={detalle.title} />
             <input type="range" min="1" max="36" step="1" value={url} onChange={handleInput} />
             <div className="description">
                 <p><b>Description: </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
