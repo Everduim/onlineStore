@@ -1,21 +1,25 @@
 import React,{useContext, useState, useEffect} from 'react'
 import { DataContext } from '../../context/DataProvider'
 import {useParams} from "react-router-dom"
+import ProductoItem from './ProductoItem'
 
 
 
 const ProductoDetalle = () => {
     const value = useContext(DataContext)
     const [productos]=value.productos;
-    const params = useParams();
+    const addCarrito = value.addCarrito
     const [detalle, setDetalle] = useState([])
-
     const [url, setUrl] = useState(0)
     const [images, setImages] = useState ('')
+    const params = useParams();
+    let item =0;
+
 
 
     useEffect(() => {
         productos.forEach(producto =>{
+            item =0;
             //console.log(producto.id, parseInt(params.id))
             if(producto.id === parseInt(params.id)){
                 setDetalle(producto)
@@ -36,6 +40,8 @@ const ProductoDetalle = () => {
         setUrl(number)
         //console.log(number)
     }
+
+    if(detalle.length < 1) return null;
 
    //console.log(detalle)
   return (
@@ -66,8 +72,8 @@ const ProductoDetalle = () => {
                     <p>Tamaño</p>
                 </div>
             </div>
-            <button>Añadir al carrito</button>
-            <img src={images} alt={detalle.title} />
+            <button onClick={()=>addCarrito(detalle.id)}>Añadir al carrito</button>
+            <img src={detalle.image} alt={detalle.title} />
             <input type="range" min="1" max="36" step="1" value={url} onChange={handleInput} />
             <div className="description">
                 <p><b>Description: </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -79,8 +85,29 @@ const ProductoDetalle = () => {
                 inventore in esse neque?.
                 </p>
             </div>
+            <br /><br /><br /><br /><br /><br />
         </div>
     }
+<h2 className='relacionado'>Productos relacionados</h2>
+<div className="productos">
+    {productos.map((producto)=> {
+        if((producto)&&(detalle.category === producto.category)){
+            item++;
+            <ProductoItem 
+            key={producto.id}
+            id={producto.id}
+            title={producto.title} 
+            price={producto.price}
+            image={producto.image}
+            category={producto.category}
+            cantidad={producto.cantidad}
+            />
+        }
+    })}
+
+
+</div>
+
 
         
     </>

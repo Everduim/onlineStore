@@ -413,7 +413,7 @@ border-radius: 5px;
 }
 
 .detalles .grid .nuevo{
-    background-color: #3033d3;
+    background-color: #4476F5;
 }
 .detalles .grid .size{
     background-color: crimson;
@@ -468,6 +468,19 @@ border-radius: 5px;
     /* max-width: 1300px;
     width: 100%; */
     color: #595a5c;
+}
+
+.relacionado{
+  text-align: center;
+  background: #2e2e2e;
+  color: white;
+  max-width: 350px;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 18px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
 }
 
 
